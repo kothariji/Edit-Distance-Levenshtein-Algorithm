@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" href="logo4.png" type="image/x-icon">
+    <title>My Project</title>
+    <style type="text/css">
+        .input-group-btn button[type="submit"] {
+            border-radius: 100px !important;
+            padding: 1rem 3rem;
+            margin-top: 50px;
+
+        }
+
+        .landing-text {
+            margin-top: 100px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-size: 4rem;
+            text-align: center;
+            color: white;
+            opacity: 75%;
+            margin-bottom: 10px;
+        }
+
+        .anagram {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            color: white;
+            opacity: 60%;
+        }
+
+        /****************animation background****************/
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /****************animation background****************/
+
+
+        /* Shine */
+        hr {
+            border: 0;
+            margin-top: 100px;
+            max-width: 100%;
+            background-position: 50%;
+            box-sizing: border-box;
+        }
+
+        .shine {
+
+            margin-top: -100;
+            height: 10px;
+            width: 80%;
+            background-image: radial-gradient(farthest-side at 50% -50%,
+                    hsla(0, 0%, 0%, 0.5),
+                    hsla(0, 0%, 0%, 0));
+            position: relative;
+        }
+
+        .shine::before {
+            margin-top: -100;
+            height: 1px;
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(90deg,
+                    hsla(0, 0%, 0%, 0),
+                    hsla(0, 0%, 0%, 0.75) 50%,
+                    hsla(0, 0%, 0%, 0));
+        }
+
+        .container {
+            /*background-color: #142850;*/
+        }
+
+        .copyright {
+
+            width: 100%;
+            text-align: center;
+            background-color: #232327;
+            color: #eee;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+
+
+        .copyright p {
+            font-size: 1rem;
+        }
+
+
+        .madewithlove {
+
+            margin-top: 10px;
+            font-family: 'Poppins';
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .fa-heart {
+            color: red;
+        }
+
+        a,
+        a:hover {
+            color: #149dcc;
+            text-decoration: none;
+            font-style: normal;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .algoritm {
+            margin-top: 3%;
+            text-align: center;
+        }
+
+        /*  submit button*/
+
+        .submitbutton {
+            display: flex;
+            text-align: center;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            width: 30%;
+            border: 2px solid #ffa812;
+            background-color: #ff9900;
+            color: white;
+            border-radius: 10px;
+            padding: 0.5em;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #e67409;
+            transition-duration: 0.4s;
+            text-shadow: 2px 2px 0 #e67409;
+        }
+
+        .submitbutton:hover {
+            transform: translateY(5px);
+            box-shadow: 0 0 0 #e67409;
+            text-shadow: 2px 2px 0 #42964c;
+            background-color: #69c160;
+            border: 2px solid #42964c;
+        }
+
+        pre{
+            background-color: lightgray;
+        }
+
+        /*        */
+
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@9'></script>
+    <script src="./script.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css'>
+</head>
+
+<body class="container">
+    <div class="landing-text">Edit Distance (Levenshtein) <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-info-circle fa-4x"></i></button></div>
+    <hr class="shine">
+
+
+
+    <div class="row editor">
+        <div class="col">
+            <div class="form-group shadow-textarea">
+                <label for="text-input" class="anagram">Enter First Word</label>
+                <textarea class="form-control z-depth-1" id="text-input1"></textarea>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group shadow-textarea">
+                <label for="text-input" class="anagram">Enter Second Word</label>
+                <textarea class="form-control z-depth-1" id="text-input2"></textarea>
+            </div>
+        </div>
+        <!--
+        <div class="col-md-12 input-group-btn " style="display:flex;    justify-content: center;">
+            <button type="submit" class="btn btn-primary btn-form display-4" onclick="myFunction()">Submit</button>
+        </div>
+-->
+    </div>
+    <button class="col-3  submitbutton" type="submit" onclick="myFunction()">Solve It</button>
+    <!--   Modal Button -->
+
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Distance (Levenshtein)</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <strong>
+                        Consider two strings str1 and str2, we need to find the minimum number of operations required to convert str1 to str2.</strong>
+                    <hr>
+                    You have the following 3 operations permitted on a word:<br><br>
+                    <ul>
+                        <li>Insert a character</li>
+                        <li>Delete a character</li>
+                        <li>Replace a character</li>
+                    </ul>
+                    
+                    <pre>
+  str1 = "reactive", str2 = "creative"
+  Output:  2
+  We can convert str1 into str2 by inserting 'c' 
+  at starting and deleting c at index 3(str1[3]).</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    Modal Ends-->
+    <div class="algoritm">
+        <div class="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
+            <a href="https://en.wikipedia.org/wiki/Levenshtein_distance" class="d-block btn btn-outline-light"><i class="fas fa-lightbulb"></i> Know more about the algorithm</a>
+            <a href="https://leetcode.com/problems/edit-distance/" target="_blank" class="d-block btn btn-outline-light"> Try this Problem at leetcode <i class="fas fa-graduation-cap"></i> </a>
+        </div>
+    </div>
+
+
+    <footer class="copyright">
+        <div class="madewithlove">
+            <p>Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/kothariji/"> <strong>Kothariji</strong></a><strong> and </strong><a href="https://www.linkedin.com/in/karan0805/"><strong>Karan</strong></a></p>
+            <p>&copy; 2020 Dhruv Kothari, Karan Gandhi</p>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $('#myModal').modal({
+                show: true,
+                backdrop: 'static'
+            });
+            //now on button click
+            $('#myModal').modal('show');
+        });
+
+        function myFunction() {
+            var x = document.getElementById("text-input1").value;
+            var y = document.getElementById("text-input2").value;
+
+            editDistDP(x, y, x.length, y.length);
+        }
+
+        function editDistDP(str1, str2, m, n) {
+            var dp = new Array(m + 1);
+
+            for (var i = 0; i < dp.length; i++)
+                dp[i] = new Array(n + 1);
+
+            for (var i = 0; i <= m; i++) {
+                for (var j = 0; j <= n; j++) {
+                    if (i == 0)
+                        dp[i][j] = j;
+
+                    else if (j == 0)
+                        dp[i][j] = i;
+
+                    else if (str1[i - 1] == str2[j - 1])
+                        dp[i][j] = dp[i - 1][j - 1];
+
+                    else
+                        dp[i][j] = 1 + Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]);
+
+                }
+            }
+
+
+
+            var cost = str1 + " can be converted into " + str2 + " at the cost of " + dp[m][n] + " steps.";
+            Swal.fire(
+                "Nice", cost, "success"
+            )
+
+        }
+
+    </script>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</html>
